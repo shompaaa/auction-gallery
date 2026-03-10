@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "title": "Vintage Camera",
+    "description": "A classic vintage film camera in excellent working condition.",
+    "currentBidPrice": 120,
+    "timeLeft": "3h 20m",
+    "bidsCount": 14,
+    "image": "https://ibb.co.com/fzjzYt6k"
+  },
+  {
+    "id": 2,
+    "title": "Gaming Laptop",
+    "description": "High-performance gaming laptop with powerful graphics card.",
+    "currentBidPrice": 850,
+    "timeLeft": "5h 10m",
+    "bidsCount": 22,
+    "image": "https://ibb.co.com/fzjzYt6k"
+  },
+  {
+    "id": 3,
+    "title": "Wireless Headphones",
+    "description": "Noise-cancelling wireless headphones with long battery life.",
+    "currentBidPrice": 95,
+    "timeLeft": "1h 45m",
+    "bidsCount": 9,
+    "image": "https://ibb.co.com/fzjzYt6k"
+  },
+  {
+    "id": 4,
+    "title": "Smart Watch",
+    "description": "Feature-packed smartwatch with health and fitness tracking.",
+    "currentBidPrice": 150,
+    "timeLeft": "6h 30m",
+    "bidsCount": 18,
+    "image": "https://ibb.co.com/fzjzYt6k"
+  },
+  {
+    "id": 5,
+    "title": "Mountain Bike",
+    "description": "Durable mountain bike suitable for rough terrains and trails.",
+    "currentBidPrice": 320,
+    "timeLeft": "2h 55m",
+    "bidsCount": 11,
+    "image": "https://ibb.co.com/fzjzYt6k"
+  },
+  {
+    "id": 6,
+    "title": "Antique Table Lamp",
+    "description": "Beautiful antique table lamp with handcrafted design.",
+    "currentBidPrice": 75,
+    "timeLeft": "4h 15m",
+    "bidsCount": 7,
+    "image": "https://ibb.co.com/fzjzYt6k"
+  }
+]
