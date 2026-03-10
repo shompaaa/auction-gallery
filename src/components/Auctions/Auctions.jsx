@@ -4,15 +4,20 @@ import { FaRegHeart } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 
 const Auctions = () => {
+
+  //useState for storing data/info
   const [auctions, setAuctions] = useState([]);
   const [bids, setBids] = useState([]);
   const [bidAmount, setBidAmount] = useState(0);
 
+
+  //fetch data from json by using useEffect
   useEffect(() => {
     fetch("./auction.json")
       .then((res) => res.json())
       .then((data) => setAuctions(data));
   }, []);
+
 
   //Bid button
   const handleBid = (b, currentBidPrice) => {
@@ -27,17 +32,17 @@ const Auctions = () => {
     }
   };
 
-  //Delete Button
 
+  //Delete Button
   const handleDelete = (id, currentBidPrice) => {
     const newBids = bids.filter((bid) => bid.id !== id);
     const newBidAmount = bidAmount - currentBidPrice;
     setBidAmount(newBidAmount);
-
     setBids(newBids);
   };
 
   return (
+   //Left Side Content 
     <div className="mx-32 my-32 flex justify-between gap-10">
       <div className="w-3/4">
         <h2 className="text-3xl mb-3">Active Auctions</h2>
@@ -64,6 +69,7 @@ const Auctions = () => {
           ))}
         </div>
       </div>
+
 
       {/* Right Side Content */}
       <div className="mt-27 bg-white p-5 rounded-xl h-full w-1/3">

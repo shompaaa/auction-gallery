@@ -8,7 +8,7 @@ const Auction = ({ auction, handleBid }) => {
       <div className="overflow-x-auto">
         <table className="table border-b mb-1 border-gray-200">
           <tbody>
-            {/* row 1 */}
+            {/* Table Row */}
             <tr className="text-start">
               <td className="w-4/7">
                 <div className="flex items-center gap-3">
