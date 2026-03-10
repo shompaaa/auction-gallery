@@ -3,10 +3,10 @@ import Auction from "../Auction/Auction";
 import { FaRegHeart } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 
-
 const Auctions = () => {
   const [auctions, setAuctions] = useState([]);
   const [bids, setBids] = useState([]);
+  const [bidAmount, setBidAmount] = useState(0);
 
   useEffect(() => {
     fetch("./auction.json")
@@ -14,13 +14,27 @@ const Auctions = () => {
       .then((data) => setAuctions(data));
   }, []);
 
-  const handleBid = (b) => {
+  //Bid button
+  const handleBid = (b, currentBidPrice) => {
     const isExist = bids.find((bid) => bid.id === b.id);
+    const totalBidAmount = bidAmount + currentBidPrice;
     if (!isExist) {
       setBids([...bids, b]);
+      setBidAmount(totalBidAmount);
+      <FaRegHeart size={20} fill="red" />;
     } else {
       alert("Already exist");
     }
+  };
+
+  //Delete Button
+
+  const handleDelete = (id, currentBidPrice) => {
+    const newBids = bids.filter((bid) => bid.id !== id);
+    const newBidAmount = bidAmount - currentBidPrice;
+    setBidAmount(newBidAmount);
+
+    setBids(newBids);
   };
 
   return (
@@ -45,6 +59,7 @@ const Auctions = () => {
               key={auction.id}
               auction={auction}
               handleBid={handleBid}
+              handleDelete={handleDelete}
             ></Auction>
           ))}
         </div>
@@ -60,18 +75,18 @@ const Auctions = () => {
         </div>
         <hr className="text-gray-200" />
         {bids.map((bid) => (
-          <div className="flex justify-between">
+          <div className="flex justify-between border-b border-gray-200">
             <div className="flex gap-3 mb-5 mt-3">
-              <img className="w-24" src={bid.image} alt="" />
+              <img className="w-24 h-24 rounded-xl" src={bid.image} alt="" />
               <div>
                 <h2>{bid.title}</h2>
-                <div className="flex justify-between">
+                <div className="flex justify-between mt-4">
                   <h2>${bid.currentBidPrice}</h2>
                   <h2>Bids: {bid.bidsCount}</h2>
                 </div>
               </div>
             </div>
-            <button>
+            <button onClick={() => handleDelete(bid.id, bid.currentBidPrice)}>
               <ImCross />
             </button>
           </div>
@@ -83,7 +98,7 @@ const Auctions = () => {
         <hr className="text-gray-200 mb-2" />
         <div className="flex justify-between mx-5 font-bold">
           <h2>Total bids Amount</h2>
-          <h2>$0000</h2>
+          <h2>${bidAmount}</h2>
         </div>
       </div>
     </div>

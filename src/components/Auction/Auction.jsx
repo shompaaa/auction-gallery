@@ -19,7 +19,7 @@ const Auction = ({ auction, handleBid }) => {
               <td> ${currentBidPrice}</td>
               <td>{timeLeft}</td>
               <td>
-                <button onClick={()=>handleBid(auction)}>
+                <button onClick={()=>handleBid(auction,currentBidPrice)}>
                   <FaRegHeart size={20} />
                 </button>
               </td>
