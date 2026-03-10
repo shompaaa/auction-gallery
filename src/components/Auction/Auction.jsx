@@ -1,12 +1,12 @@
 import React from "react";
 import { FaRegHeart } from "react-icons/fa";
 
-const Auction = ({ auction }) => {
+const Auction = ({ auction, handleBid }) => {
   const { image, title, currentBidPrice, timeLeft } = auction;
   return (
     <div>
       <div className="overflow-x-auto">
-        <table className="table">
+        <table className="table border-b mb-1 border-gray-200">
           <tbody>
             {/* row 1 */}
             <tr className="text-start">
@@ -19,7 +19,7 @@ const Auction = ({ auction }) => {
               <td> ${currentBidPrice}</td>
               <td>{timeLeft}</td>
               <td>
-                <button>
+                <button onClick={()=>handleBid(auction)}>
                   <FaRegHeart size={20} />
                 </button>
               </td>
